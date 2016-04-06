@@ -79,9 +79,8 @@
 (defun chep-lyrics-current()
   (interactive)
   (assert (ampc-on-p))
-  (unless (or ampc-status no-print)
-    (ampc-send-command 'status)
-    (return-from ampc-status))
+  (ampc-send-command 'status)
+  (return-from ampc-status)
   (let ((stopped (equal (cdr (assq 'state ampc-status)) "stop")))
     (unless stopped
       (let ((artist (ampc-clean-tag 'Artist (cdr (assq 'Artist ampc-status))))
