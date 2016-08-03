@@ -39,7 +39,7 @@
    chep-lyrics-url
    "/lyrics/"
    (replace-regexp-in-string
-    " " ""
+    " \\|'" ""
     (concat
      artist
      "/"
